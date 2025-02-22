@@ -9,12 +9,12 @@
 
     <div class="row">
         <div class="col text-center m-0">
-            <h2 class="mt-2 mb-5 my-h2">Lista de Alunos</h2>
+            <h2 class="mt-2 mb-5 my-h2">Lista de Titulo</h2>
         </div>
     </div>
 
     <!-- tabela responsiva -->
-     {% if %}
+     {% if titulo %}
     <div class="table-responsive">
 
         <!-- classes para tabela (Bootstrap) , tabela sem borda, conteudo alinhado ao centro, ... , width: auto -->
@@ -33,24 +33,17 @@
                 <!-- linhas -->
                 <tr>
                     <!-- colunas cabecalho -->
-                    <th>Matrícula</th>
-                    <th>Nome</th>
-                    <th>Data Matrícula</th>
-                    <th>Data Saída</th>
-                    <th>Aluno Monitor</th>
+                    <th>Código</th>
+                    <th>Descrição</th>
                 </tr>
             </thead>
 
             <!-- linhas -->
-             {% for aluno in alunos %}
+             {% for t in titulo %}
             <tr>
-                <td> {{ aluno.matricula}} </td>
-                <td> {{ aluno.nome }} </td>
-                <td> {{ aluno.data_inicial | date:"d/m/Y"}}  </td>
-                <td> {% if aluno.data_inicial %} 
-                    {{ aluno.data_final | date:"d/m/Y"}} 
-                    {% else %} --- {% endif %}</td>
-                <td> -- </td>
+                <td> {{ t.codigo}} </td>
+                <td> {{ t.descricao }} </td>
+                
             </tr>
 
             {% endfor %}
@@ -62,7 +55,7 @@
     {% else %}
 
     <div class = "text-danger">
-        <p> Não há alunos Cadastrados.</p>
+        <p> Não há Titulo Cadastrado.</p>
     </div>
 
 </main>
