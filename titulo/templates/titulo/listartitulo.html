@@ -1,8 +1,21 @@
 {% extends "base_templates.html" %}
 
+
 {% block title %}
     <title>Django - Exercícios</title>
 {% endblock %}
+
+
+{% block menu %}
+<div class="collapse navbar-collapse justify-content-end" id="mynavbar">
+    <div class="navbar-nav">
+        <a href="/" class="nav-link">Início</a>
+        <a href="{% url 'titulo:cadastro'%}" class="nav-link">Cadastrar</a>
+        <a href="{% url 'titulo:listar'%}" class="nav-link">Listar</a>
+    </div>
+</div>
+{% endblock %}
+
 
 {% block corpo %}
 <main class="container m-2 mx-auto my-font-family">
@@ -57,6 +70,9 @@
     <div class = "text-danger">
         <p> Não há Titulo Cadastrado.</p>
     </div>
+
+    {% endif %}
+    
 
 </main>
 

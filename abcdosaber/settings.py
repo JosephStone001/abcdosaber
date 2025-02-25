@@ -41,8 +41,7 @@ INSTALLED_APPS = [
     'titulo.apps.TituloConfig',
     'aluno.apps.AlunoConfig',
     'instrutores.apps.InstrutoresConfig',
-    'turmas.apps.TurmasConfig',
-    
+    'turmas.apps.TurmasConfig',    
 ]
 
 MIDDLEWARE = [
@@ -61,7 +60,7 @@ TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
         'DIRS': [
-                    BASE_DIR / "templates"
+                BASE_DIR / "templates"
             ],
         'APP_DIRS': True,
         'OPTIONS': {
@@ -123,12 +122,9 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/4.2/howto/static-files/
 
-STATIC_URL = '/static/'
-
-
-
+STATIC_URL = 'static/'
 STATICFILES_DIR = [
-    BASE_DIR / STATIC_URL,
+    BASE_DIR / STATIC_URL
 ]
 
 # Default primary key field type

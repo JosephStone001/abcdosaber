@@ -2,11 +2,9 @@ from django.shortcuts import render
 from django.http import HttpResponse
 
 from titulo.models import Titulo
+from titulo.forms import TituloForm
 
 # Create your views here.
-def index(request):
-    return HttpResponse("<!DOCType html><html><body><main><p style='color:blue;'>'Titulo' </p> <img src='https://th.bing.com/th/id/R.84b7c8f6236fefd984268dde706269af?rik=DkEApTxqIr0ifA&pid=ImgRaw&r=0'> <img src='https://i.pinimg.com/236x/d4/26/42/d426423f41bbbab27512ec9b2476e122.jpg'> </main> </body></html>")
-
 def listar(request):
     lista_titulo = Titulo.objects.order_by("descricao")
     contexto = {
@@ -14,9 +12,16 @@ def listar(request):
         }
     return render(request, 'titulo/listarTitulo.html', context = contexto)
 
-def shoe_mensagem(request):
-    x = " Blz? "
-    nome = x + "Jose, Tudo bem?"
-    return HttpResponse(f"Bom Dia!{nome}")
+def carregar_cadastro(request):
+    return render(request, 'titulo/cadastrarTitulo.html')
 
-# Create your views here.
+def cadastrar(request):
+    form = TituloForm(request.POST)
+    if form.is_valid():
+        dados_titulo = form.cleaned_data
+        titulo = Titulo(
+            descricao = dados_titulo['descricao']
+        )
+        titulo.save()
+        
+    return render(request, 'titulo/cadastrarTitulo.html')
