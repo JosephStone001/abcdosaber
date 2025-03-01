@@ -1,30 +1,33 @@
 {% extends "base_templates.html" %}
 
+
 {% block title %}
     <title>Django - Exercícios</title>
 {% endblock %}
+
 
 {% block menu %}
 <div class="collapse navbar-collapse justify-content-end" id="mynavbar">
     <div class="navbar-nav">
         <a href="/" class="nav-link">Início</a>
-        <a href="{% url 'titulo:cadastro'%}" class="nav-link">Cadastrar</a>
-        <a href="{% url 'titulo:listar'%}" class="nav-link">Listar</a>
+        <a href="{% url 'instrutores:cadastro'%}" class="nav-link">Cadastrar</a>
+        <a href="{% url 'instrutores:listar'%}" class="nav-link">Listar</a>
     </div>
 </div>
 {% endblock %}
+
 
 {% block corpo %}
 <main class="container m-2 mx-auto my-font-family">
 
     <div class="row">
         <div class="col text-center m-0">
-            <h2 class="mt-2 mb-5 my-h2">Lista de Tipo de Atividade</h2>
+            <h2 class="mt-2 mb-5 my-h2">Lista de Instrutor</h2>
         </div>
     </div>
 
     <!-- tabela responsiva -->
-     {% if tipodeatividade %}
+     {% if instrutores %}
     <div class="table-responsive">
 
         <!-- classes para tabela (Bootstrap) , tabela sem borda, conteudo alinhado ao centro, ... , width: auto -->
@@ -43,16 +46,27 @@
                 <!-- linhas -->
                 <tr>
                     <!-- colunas cabecalho -->
-                    <th>Código</th>
-                    <th>Descrição</th>
-                </tr>
+                    <th>id</th>
+                    <th>rg </th>
+                    <th>nome </th>                    
+                    <th>dataNascimento</th>
+                    <th>telefone</th>
+                    <th>ddd </th>
+                    <th>titulo </th>
+                </th>
             </thead>
 
             <!-- linhas -->
-             {% for ta in tipodeatividade %}
+             {% for i in instrutores %}
             <tr>
-                <td> {{ ta.codigo}} </td>
-                <td> {{ ta.descricao }} </td>
+                <td> {{ i.Id}} </td>
+                <td> {{ i.rg}} </td>
+                <td> {{ i.nome }} </td>
+                <td> {{ i.dataNascimento }} </td>
+                <td> {{ i.telefone }} </td>
+                <td> {{ i.ddd }} </td>
+                <td> {{ i.titulo_codigo.descricao }} </td>
+                               
                 
             </tr>
 
@@ -65,10 +79,11 @@
     {% else %}
 
     <div class = "text-danger">
-        <p> Não há Tipo de Atividade Cadastrados.</p>
+        <p> Não há Titulo Cadastrado.</p>
     </div>
 
     {% endif %}
+    
 
 </main>
 

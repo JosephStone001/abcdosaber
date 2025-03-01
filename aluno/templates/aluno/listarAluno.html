@@ -4,6 +4,16 @@
     <title>Django - Exercícios</title>
 {% endblock %}
 
+{% block menu %}
+<div class="collapse navbar-collapse justify-content-end" id="mynavbar">
+    <div class="navbar-nav">
+        <a href="/" class="nav-link">Início</a>
+        <a href="#" class="nav-link">Cadastrar</a>
+        <a href="{% url 'aluno:listar'%}" class="nav-link">Listar</a>
+    </div>
+</div>
+{% endblock %}
+
 {% block corpo %}
 <main class="container m-2 mx-auto my-font-family">
 
@@ -14,7 +24,7 @@
     </div>
 
     <!-- tabela responsiva -->
-     {% if %}
+    {% if aluno %}
     <div class="table-responsive">
 
         <!-- classes para tabela (Bootstrap) , tabela sem borda, conteudo alinhado ao centro, ... , width: auto -->
@@ -46,9 +56,9 @@
             <tr>
                 <td> {{ aluno.matricula}} </td>
                 <td> {{ aluno.nome }} </td>
-                <td> {{ aluno.data_inicial | date:"d/m/Y"}}  </td>
-                <td> {% if aluno.data_inicial %} 
-                    {{ aluno.data_final | date:"d/m/Y"}} 
+                <td> {{ aluno.dataInicial|date:"d/m/Y"}}  </td>
+                <td> {% if aluno.dataFinal %} 
+                    {{ aluno.dataFinal|date:"d/m/Y"}} 
                     {% else %} --- {% endif %}</td>
                 <td> -- </td>
             </tr>

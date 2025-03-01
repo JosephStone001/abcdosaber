@@ -27,5 +27,5 @@ class Instrutores (models.Model):
                                       )
    
         
-    def _str_(self):
+    def __str__(self):
         return f'{self.codigo} {self.descricao}'

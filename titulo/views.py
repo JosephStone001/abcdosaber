@@ -13,6 +13,7 @@ def listar(request):
     return render(request, 'titulo/listarTitulo.html', context = contexto)
 
 def carregar_cadastro(request):
+    
     return render(request, 'titulo/cadastrarTitulo.html')
 
 def cadastrar(request):

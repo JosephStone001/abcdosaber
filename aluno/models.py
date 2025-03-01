@@ -10,14 +10,11 @@ class Aluno (models.Model):
     nome = models.CharField(max_length=70, null=False,
                                  help_text='Informe a descrição do aluno')
     dataInicial = models.DateField(null=False,
-                                   default=timezone.now(),
+                                   default=timezone.now,
                                    help_text='Informe a Data inicial')
     
-    dataFinal = models.DateField(null=False,
-                                 default=timezone.now(),
+    dataFinal = models.DateField(null=True, blank=True,
                                  help_text='Informe a Data inicial')
-    
-    teste = models.CharField(null=True, blank=True, max_length=100)
         
     def _str_(self):
         return f'{self.matricula} {self.nome}'
